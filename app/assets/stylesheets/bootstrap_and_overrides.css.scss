@@ -9,8 +9,20 @@ $iconWhiteSpritePath: image-path('twitter/bootstrap/glyphicons-halflings-white.p
 // $fontAwesomeSvgzPath: image-path('fontawesome-webfont.svgz');
 // $fontAwesomeSvgPath: image-path('fontawesome-webfont.svg');
 
+$navbarBackground: #3A3F44;
+$navbarBackgroungImage: linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+
 @import "bootstrap";
-body { padding-top: 60px; }
+
+body { 
+  padding-top: 60px; 
+  margin: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #757C82;
+  background-color: #272B30;
+}
 
 @import "bootstrap-responsive";
 
@@ -28,3 +40,10 @@ body { padding-top: 60px; }
 //
 // Example:
 // @linkColor: #ff0000;
+
+.navbar .brand {
+  color: #BBBFC2;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+

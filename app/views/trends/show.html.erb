@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @trend.name %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @trend.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @trend.end %>
+</p>
+
+
+<%= link_to 'Edit', edit_trend_path(@trend) %> |
+<%= link_to 'Back', trends_path %>

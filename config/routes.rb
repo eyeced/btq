@@ -1,4 +1,10 @@
 Btq::Application.routes.draw do
+  get "home/index"
+
+  resources :images
+
+  resources :trends
+
   get 'login', to: 'sessions#new', as: 'login'
   get 'signup', to: 'users#new', as: 'signup'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -12,7 +18,7 @@ Btq::Application.routes.draw do
 
   resources :products
 
-  root :to => 'products#index'
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

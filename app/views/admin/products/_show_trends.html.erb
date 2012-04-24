@@ -1,0 +1,21 @@
+<div class="panel">
+  <h3>Trends</h3>
+  <div class="panel_contents">
+    <div class="attributes_table trends">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+        <% product.trends.each do |trend| %>
+          <tr>
+            <td><%= trend.name %></td>
+            <td><%= trend.start %></td>
+            <td><%= trend.end %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

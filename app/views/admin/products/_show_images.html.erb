@@ -1,0 +1,10 @@
+<div class="panel">
+  <h3>Product Images</h3>
+  <div class="panel_contents">
+  <% product.images.each do |img| %>
+    <span style="padding-left: 10px;">
+      <%= image_tag img.path %>
+    </span>
+  <% end %>
+  </div>
+</div>
