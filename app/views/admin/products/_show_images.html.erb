@@ -3,7 +3,7 @@
   <div class="panel_contents">
   <% product.images.each do |img| %>
     <span style="padding-left: 10px;">
-      <%= image_tag img.path %>
+      <%= image_tag img.path_url(:thumb) %>
     </span>
   <% end %>
   </div>

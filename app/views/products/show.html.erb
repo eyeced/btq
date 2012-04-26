@@ -1,24 +1,29 @@
-<div class="container">
-  <%- model_class = @product.class -%>
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-  <p>
-    <%= image_tag @product.image_url(:thumb) %>
-  </p>
-  <p>
-    <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
-    <%= @product.name %>
-  </p>
-<p>
-  <strong><%= model_class.human_attribute_name(:price) %>:</strong><br>
-  <%= @product.price %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:type) %>:</strong><br>
-  <%= @product.type %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:quantity) %>:</strong><br>
-  <%= @product.quantity %>
-</p>
-
+<%- model_class = @product.class -%>
+<div class="row">
+  <div class="span6">
+    <div class="well">
+      <div id="product_carousel" class="carousel slide">
+        <div class="carousel-inner">
+          <% @product.images.each_with_index do |img, i| %>
+            <div class="item <%= i == 0 ? "active" : "" %>">
+              <%= image_tag img.path_url(:thumb) %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control left" href="#product_carousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#product_carousel" data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <h2><%= @product.name %></h2>
+    <br/>
+    <h4><%= sprintf("Rs, %0.02f", @product.price) %></h4>
+    <br/>
+    <% if !session[:user_id].nil? %>
+      <a class="btn btn-inverse" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i>Add to Cart</a>
+      <br/><br/>
+      <a class="btn btn-inverse" href="#"><i class="icon-plus-sign icon-white"></i>Order</a>
+    <% end %>
+  </div>
 </div>

@@ -6,6 +6,7 @@ ActiveAdmin.register Product do
       row :description
       row :quantity
       row :price
+      row :category
       row :created_at
       row :updated_at
     end
@@ -17,26 +18,20 @@ ActiveAdmin.register Product do
     end
   end
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
       f.input :description
       f.input :quantity
       f.input :price
       f.input :trends
+      f.input :category, :as => :select, :collection => Product.categories
     end
     f.has_many :images do |fi|
       fi.inputs "Image" do
-#       if !fi.object.nil?
-#         fi.input :_destroy, :as => :boolean, :label => "Destroy?"
-#       end
         fi.input :path, :as => :file
       end
     end
-
-#    f.has_and_belongs_to_many :trends do |ft|
-#      ft.input :id, :as => :select, :include_blank => false
-#    end
     f.buttons
   end
 end

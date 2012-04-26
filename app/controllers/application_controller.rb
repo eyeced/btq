@@ -10,4 +10,15 @@ class ApplicationController < ActionController::Base
     def authorize
       redirect_to login_url, alert: "Not authorized" if current_user.nil?
     end
+
+    def current_cart
+      cart = nil
+      if session[:cart].nil?
+        cart = Cart.create!(:user_id => session[:user_id])
+        session[:cart] = cart
+      else
+        cart = session[:cart]
+      end
+      cart
+    end
 end

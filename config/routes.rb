@@ -1,4 +1,10 @@
 Btq::Application.routes.draw do
+  resources :line_items
+
+  post 'line_items/new', to: 'line_items#new', as: 'new_line_item'
+
+  resources :carts
+
   get "home/index"
 
   resources :images
