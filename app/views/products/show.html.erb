@@ -17,13 +17,13 @@
   </div>
   <div class="span6">
     <h2><%= @product.name %></h2>
-    <br/>
+    <p><%= @product.description %></p>
     <h4><%= sprintf("Rs, %0.02f", @product.price) %></h4>
     <br/>
     <% if !session[:user_id].nil? %>
-      <a class="btn btn-inverse" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i>Add to Cart</a>
+      <a class="btn btn-primary" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
       <br/><br/>
-      <a class="btn btn-inverse" href="#"><i class="icon-plus-sign icon-white"></i>Order</a>
+      <a class="btn btn-primary" href="#"><i class="icon-plus-sign icon-white"></i> Order</a>
     <% end %>
   </div>
 </div>

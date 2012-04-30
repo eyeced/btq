@@ -19,6 +19,14 @@ class Product < ActiveRecord::Base
     ["suit", "saree", "kurti"]
   end
 
+  def self.text_search(query)
+    if query.present?
+      where("name @@ :q or description @@ :q or category @@ :q", q: query)
+    else
+      scoped
+    end
+  end
+
   private
     # ensure here that if destroy is called on the product then we should ensure that the product
     # is not been references in any line item
