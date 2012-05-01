@@ -27,9 +27,11 @@ ActiveAdmin.register Product do
       f.input :trends
       f.input :category, :as => :select, :collection => Product.categories
     end
-    f.has_many :images do |fi|
-      fi.inputs "Image" do
-        fi.input :path, :as => :file
+
+    f.inputs "Product Images" do
+      f.has_many :images do |fi|
+        fi.input :path, :as => :file, :label => "Image", :hint => fi.template.image_tag(fi.object.path.url(:thumb))
+        fi.input :_destroy, :as => :boolean, :required => false, :label => "Destroy?"
       end
     end
     f.buttons

@@ -1,34 +1,23 @@
 <%- model_class = Product.new.class -%>
 <div class="row">
   <div class="span3">
-    <h3>Categories</h3>
-    <div class="thumbnail">
-      <h5>Suits</h5>
-      <h5>Sarees</h5>
-      <h5>Kurti</h5>
+    <div class="well">
+      <ul class="nav nav-list">
+        <li class="nav-header">Categories<li>
+        <% @categories.each do |name, display_name| %>
+          <li><%= link_to "#{display_name}", :controller => "products", :query => "#{name}" %></li>
+        <% end %>
+        <li class="nav-header">Trends</li>
+        <% @trends.each do |trend| %>
+          <li><%= link_to trend.name, :controller => "products", :query => trend.name %></li>
+        <% end %>
+
+      </ul>
     </div>
   </div>
   <div class="span9">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-    <ul class="thumbnails">
-      <% @products.each do |product| %>
-        <li class="span3">
-          <div class="thumbnail">
-            <% if !product.images.empty? %>
-              <%= image_tag product.images[0].path_url(:thumb) %>
-            <% end %>
-            <h5><%= link_to product.name, product_path(product) %></h5>
-            <p><%= product.description %></p>
-            <p>
-              <% if !session[:user_id].nil? %>
-                <a class="btn btn-primary" id="add_to_cart" product_id="<%= product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
-                <a class="btn btn-primary" href="#"><i class="icon-plus-sign icon-white"></i> Order</a>
-              <% end %>
-            </p>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+    <%= render :partial => "products/list", :locals => {:products => @products} %>
   </div>
 </div>
 

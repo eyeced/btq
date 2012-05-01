@@ -6,7 +6,7 @@
         <div class="carousel-inner">
           <% @product.images.each_with_index do |img, i| %>
             <div class="item <%= i == 0 ? "active" : "" %>">
-              <%= image_tag img.path_url(:thumb) %>
+              <%= image_tag img.path_url(:medium) %>
             </div>
           <% end %>
         </div>

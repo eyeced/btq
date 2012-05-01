@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
 # one to many mapping to line items
   has_many :line_items
 # property added to control insert for the related models
-  accepts_nested_attributes_for :images, :trends
+  accepts_nested_attributes_for :images, :allow_destroy => true
+  accepts_nested_attributes_for :trends
 
   before_destroy :ensure_not_referenced_by_any_line_item
 

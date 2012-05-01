@@ -1,0 +1,19 @@
+<ul class="thumbnails">
+  <% products.each do |product| %>
+    <li class="span2">
+      <div class="thumbnail">
+        <% if !product.images.empty? %>
+          <%= image_tag product.images[0].path_url(:thumb) %>
+        <% end %>
+        <h5><%= link_to product.name, product_path(product) %></h5>
+        <p><%= product.description %></p>
+        <p>
+          <% if !session[:user_id].nil? %>
+            <a class="btn btn-primary" id="add_to_cart" product_id="<%= product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
+            <a class="btn btn-primary" href="#"><i class="icon-plus-sign icon-white"></i> Order</a>
+          <% end %>
+        </p>
+      </div>
+    </li>
+  <% end %>
+</ul>

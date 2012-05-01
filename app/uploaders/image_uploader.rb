@@ -21,9 +21,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [260, 350]
+    process :resize_to_fit => [168, 242]
   end
 
+  version :medium do
+    process :resize_to_fit => [277, 400]
+  end
+
+  version :large do
+    process :resize_to_fit => [761, 1098]
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

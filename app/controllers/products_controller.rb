@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.text_search(params[:query])
 
+    @categories = Product.categories.collect {|c| [c, c.pluralize.capitalize]}
+    @trends = Trend.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
