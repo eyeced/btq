@@ -16,9 +16,20 @@
     </div>
   </div>
   <div class="span6">
+    <br/>
     <h2><%= @product.name %></h2>
     <p><%= @product.description %></p>
-    <h4><%= sprintf("Rs, %0.02f", @product.price) %></h4>
+    <h4><%= sprintf("Rs. %0.02f", @product.price) %></h4><br/>
+    <% if @product.product_items.size > 0 %>
+      <select id="product_size">
+        <option>Choose Size</option>
+        <% (@product.product_items.collect {|item| item.size }).each do |size| %>
+          <option value="<%= size %>"><%= size %></option>
+        <% end %>
+      </select>
+    <% else %>
+      <h5>Out of Stock</h5>
+    <% end %>
     <br/>
     <% if !session[:user_id].nil? %>
       <a class="btn btn-primary" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>

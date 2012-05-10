@@ -1,3 +1,22 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+
+label, input, button, select, textarea, legend {
+  color: #757C82;
+}
+
+hr, legend, .page-header, .dropdown-menu .divider {
+  border-bottom: 1px solid #1C1E22;
+  background-color: transparent;
+}
+
+.well, .form-actions {
+  background-color: #202328;
+}
+
+.form-actions {
+  border-top: 1px solid #1C1E22;
+}
+

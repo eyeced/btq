@@ -11,6 +11,9 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require products
+ *= require users
 */
 
-
+.form-actions {
+  background-color: #202328;
+}

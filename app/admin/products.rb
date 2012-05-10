@@ -1,14 +1,21 @@
 ActiveAdmin.register Product do
 
-  show do
+  show do |product|
     attributes_table do
       row :name
       row :description
-      row :quantity
       row :price
-      row :category
+      row "Parent Category" do
+        product.category.parent.name
+      end
+      row "Category" do
+        product.category.name 
+      end
       row :created_at
       row :updated_at
+    end
+    div do
+      render "show_product_items"
     end
     div do
       render "show_trends"
@@ -18,14 +25,22 @@ ActiveAdmin.register Product do
     end
   end
 
+#  form :partial => "form" 
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "Details" do
       f.input :name
       f.input :description
-      f.input :quantity
       f.input :price
       f.input :trends
-      f.input :category, :as => :select, :collection => Product.categories
+      f.input :category, :collection => Category.sub_categories.collect! {|sub| sub.name = sub.parent.name + " -> " + sub.name; sub}
+    end
+
+    f.inputs "ProductItems" do
+      f.has_many :product_items do |fpi|
+        fpi.input :quantity
+        fpi.input :size, :as => :select, :collection => Product.sizes 
+        fpi.input :_destroy, :as => :boolean, :required => false, :label => "Destroy?"
+      end
     end
 
     f.inputs "Product Images" do

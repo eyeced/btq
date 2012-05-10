@@ -1,0 +1,19 @@
+<div class="panel">
+  <h3>Trends</h3>
+  <div class="panel_contents">
+    <div class="attributes_table trends">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>Size</th>
+          <th>Quantity</th>
+        </tr>
+        <% product.product_items.each do |item| %>
+          <tr>
+            <td><%= item.size %></td>
+            <td><%= item.quantity %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

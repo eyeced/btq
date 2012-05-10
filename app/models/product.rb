@@ -1,31 +1,48 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price, :quantity, :type, :path, :description, :images_attributes, :trend_ids, :category
+  attr_accessible :name, :price, :type, :path, :description, :images_attributes, :trend_ids, :category_id, :product_items_attributes
 # many to many relation with trends
   has_and_belongs_to_many :trends
 # one to many mapping to images
   has_many :images
+# one to many mapping for product items which have the size and quantity
+  has_many :product_items
 # one to many mapping to line items
   has_many :line_items
+
+  belongs_to :category
 # property added to control insert for the related models
   accepts_nested_attributes_for :images, :allow_destroy => true
   accepts_nested_attributes_for :trends
+  accepts_nested_attributes_for :product_items, :allow_destroy => true
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :name, :description, :price, :quantity, :category, presence: true
+  validates :name, :description, :price, :category_id, presence: true
 
-  validates :category, :inclusion => { :in => %w{suit saree kurti}, :message => "%{value} is not a valid category" }
+  include PgSearch
+  pg_search_scope :search, against: [:name, :description],
+    using: {tsearch: {dictionary: "english"}},
+    associated_against: {category: :name}
 
-  def self.categories
-    ["suit", "saree", "kurti"]
+  def self.sizes
+    ["small", "medium", "large"]
   end
 
+# search on product
   def self.text_search(query)
     if query.present?
-      where("name @@ :q or description @@ :q or category @@ :q", q: query)
+      search(query)
     else
       scoped
     end
+  end
+
+  def quantity
+    quantity = 0
+    product_items.each do |item|
+      quantity = quantity + item.quantity
+    end
+    quantity
   end
 
   private

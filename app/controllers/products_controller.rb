@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.text_search(params[:query])
 
-    @categories = Product.categories.collect {|c| [c, c.pluralize.capitalize]}
+    @categories = Category.where('parent_id is null')
     @trends = Trend.all
 
     respond_to do |format|

@@ -4,8 +4,8 @@
     <div class="well">
       <ul class="nav nav-list">
         <li class="nav-header">Categories<li>
-        <% @categories.each do |name, display_name| %>
-          <li><%= link_to "#{display_name}", :controller => "products", :query => "#{name}" %></li>
+        <% @categories.each do |category| %>
+          <li><%= link_to "#{category.name}", :controller => "products", :query => "#{category.name}" %></li>
         <% end %>
         <li class="nav-header">Trends</li>
         <% @trends.each do |trend| %>
