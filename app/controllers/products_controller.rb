@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.text_search(params[:query])
+    @products = Product.text_search(params[:query]).page(params[:page]).per_page(16)
 
     @categories = Category.where('parent_id is null')
     @trends = Trend.all

@@ -1,6 +1,6 @@
 <%- model_class = @product.class -%>
 <div class="row">
-  <div class="span6">
+  <div class="span4">
     <div class="well">
       <div id="product_carousel" class="carousel slide">
         <div class="carousel-inner">
@@ -10,12 +10,12 @@
             </div>
           <% end %>
         </div>
-        <a class="carousel-control left" href="#product_carousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#product_carousel" data-slide="next">&rsaquo;</a>
+        <a class="carousel-control left show-product" href="#product_carousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right show-product" href="#product_carousel" data-slide="next">&rsaquo;</a>
       </div>
     </div>
   </div>
-  <div class="span6">
+  <div class="span8">
     <br/>
     <h2><%= @product.name %></h2>
     <p><%= @product.description %></p>

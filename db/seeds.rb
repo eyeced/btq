@@ -7,8 +7,38 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
-categories = Category.create([{name: 'Suits'}, {name: 'Lehenga'}, {name: 'Kurti'}])
+#Category.delete_all
+#categories = Category.create([{name: 'Suits'}, {name: 'Lehenga'}, {name: 'Kurti'}])
 
-suit_sub_category = %w{Casual Formal Lucknowi Party Office}.each {|suit_sub_cat| Category.create([{name: suit_sub_cat, parent_id: categories.first.id}])}
-lehenga_sub_category = %w{Bridal Party}.each {|lehenga_sub_cat| Category.create([{name: lehenga_sub_cat, parent_id: categories[1].id}])}
-kurti_sub_category = %w{Office Casual Lucknowi}.each {|kurti_sub_cat| Category.create([{name: kurti_sub_cat, parent_id: categories[2].id}])}
+#suit_sub_category = %w{Casual Formal Lucknowi Party Office}.each {|suit_sub_cat| Category.create([{name: suit_sub_cat, parent_id: categories.first.id}])}
+#lehenga_sub_category = %w{Bridal Party}.each {|lehenga_sub_cat| Category.create([{name: lehenga_sub_cat, parent_id: categories[1].id}])}
+#kurti_sub_category = %w{Office Casual Lucknowi}.each {|kurti_sub_cat| Category.create([{name: kurti_sub_cat, parent_id: categories[2].id}])}
+
+Category.sub_categories.each do |cat|
+  for i in 1..20 do
+    product = Product.new
+    product.name = "Test product #{cat.name}-#{cat.parent.name}-#{i}"
+    product.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    product.category_id = cat.id
+    product.price = [1000, 1500, 2000, 2500, 3000, 3500].shuffle.first
+    product.created_at = rand(1.year).ago
+    product.save!
+
+    Product.sizes.each do |size|
+      quantity = (1..10).to_a.shuffle.first
+      ProductItem.create!(:size => size, :quantity => quantity, :product_id => product.id)
+    end
+
+    product_img1 = Image.create!(:product_id => product.id)
+    product_img1.path.store!(File.open(File.join(Rails.root, 'test1.jpg')))
+    product.images << product_img1
+    product_img2 = Image.create!(:product_id => product.id)
+    product_img2.path.store!(File.open(File.join(Rails.root, 'test2.jpg')))
+    product.images << product_img2
+    product_img3 = Image.create!(:product_id => product.id)
+    product_img3.path.store!(File.open(File.join(Rails.root, 'test3.jpg')))
+    product.images << product_img3
+    product.save!
+
+  end
+end
