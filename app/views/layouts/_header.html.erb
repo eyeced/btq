@@ -6,12 +6,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Ethnic Boutique</a>
+      <a class="brand" href="/">Ethnic Boutique</a>
       <div class="nav-collapse">
         <ul class="nav">
           <li><%= link_to "Browse Products", products_path %></li>
-          <li><%= link_to "Price List" %></li>
-          <li><%= link_to "Contact Us" %></li>
         </ul>
         <ul class="nav pull-right">
           <% if current_user %>
@@ -19,14 +17,14 @@
               <li class="dropdown">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Logout', 'logout' %></li>
+                  <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
                 </ul>
               </li>
               <li id="cart"><%= render :partial => "carts/user_cart", :locals => {:cart => session[:cart]} %></li>
             </ul>
           <% else %>
-            <li><%= link_to 'Sign up', :signup, :class => 'pull-right' %></li>
-            <li><%= link_to 'Login', :login, :class => 'pull-right' %></li>
+            <li><%= link_to 'Sign Up', new_registration_path(User), :class => 'pull-right' %></li>
+            <li><%= link_to 'Login', new_session_path(User), :class => 'pull-right' %></li>
           <% end %>
         </ul>
       </div>

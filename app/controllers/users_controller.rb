@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_url, notice: 'Thank you for signing up'
+# session[:user_id] = @user.id
+      redirect_to root_url, notice: 'Thank you for signing up, an email is sent to your mail id #{@user.email} for email confirmation'
     else
-      render 'new'
+      render :new
     end
   end
 end

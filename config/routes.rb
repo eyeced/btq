@@ -1,4 +1,7 @@
 Btq::Application.routes.draw do
+
+  devise_for :users, :path_names => { "signup" => "sign_up"}
+
   resources :categories
 
   resources :line_items
@@ -17,14 +20,16 @@ Btq::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users
-  resources :sessions
+#  resources :users
+#  resources :sessions
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :products
+
+  resources :password_resets
 
   root :to => 'home#index'
 

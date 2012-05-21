@@ -1,21 +1,9 @@
 <div class="row">
   <div class="span7 offset1">
-    <%= form_for @user, :html => { :class => 'form-horizontal well' } do |f| %>
+    <%= form_for @user, :url => password_reset_path(params[:id]), :html => { :class => 'form-horizontal well' } do |f| %>
       <%= render :partial => "common/obj_errors", :locals => { :obj => @user } %>
       <fieldset>
-        <legend>User Sign Up</legend>
-        <div class="control-group">
-          <%= f.label :name, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :name, :class => 'text-field' %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :email, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :email, :class => 'text-field'  %>
-          </div>
-        </div>
+        <legend>Reset Password</legend>
         <div class="control-group">
           <%= f.label :password, :class => 'control-label' %>
           <div class="controls">
@@ -28,7 +16,7 @@
             <%= f.password_field :password_confirmation, :class => 'text-field'  %>
           </div>
         </div>
-        <div class="form-actions"><%= f.submit "Sign Up", :class => 'btn btn-primary' %></div>
+        <div class="form-actions"><%= f.submit "Update Password", :class => 'btn btn-primary' %></div>
       </fieldset>
     <% end %>
   </div>

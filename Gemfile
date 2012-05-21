@@ -29,12 +29,22 @@ gem 'carrierwave'
 
 gem 'activeadmin'
 gem 'formtastic', '~> 2.1.1'
+
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'devise'
 
 gem 'populator'
 
 gem 'will_paginate'
+
+gem 'rspec-rails', :group => [:test, :development]
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

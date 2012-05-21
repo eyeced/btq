@@ -1,0 +1,7 @@
+<%= @user.name %>,
+
+Thank you for signing up. 
+
+Please click the link below to verify your email address
+
+<%= activate_user_url(@user.activate_token) %>
