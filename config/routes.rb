@@ -1,6 +1,11 @@
 Btq::Application.routes.draw do
 
-  devise_for :users, :path_names => { "signup" => "sign_up"}
+  devise_for :users, :path_names => { "signup" => "sign_up"}, :controllers => { :sessions => "sessions" }
+
+devise_scope :user do
+  get "login", :to => "devise/sessions#new"
+  get "signup", :to => "devise/registrations#new"
+end
 
   resources :categories
 
@@ -27,7 +32,9 @@ Btq::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  get 'products/quantity', to: 'products#quantity'
   resources :products
+
 
   resources :password_resets
 

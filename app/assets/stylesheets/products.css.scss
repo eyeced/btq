@@ -1,126 +1,135 @@
-.show-product {
+//.show-product {
+//  width: 20px;
+//  height: 20px;
+//  font-size: 30px;
+//  line-height: 15px;
+//  border: 2px solid white;
+//}
+//
+//.thumbnail {
+//  border-color: #222;
+//}
+//
+//.navbar .nav > li > a {
+//  float:none;
+//  padding:10px 10px 11px;
+//  line-height:19px;
+//  color:#757c82;
+//  text-decoration:none;
+//  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+//}
+//.navbar .nav > li > a:hover {
+//  background-color:transparent;
+//  color:#ffffff;
+//  text-decoration:none;
+//}
+//.navbar .nav .active > a,.navbar .nav .active > a:hover {
+//  color:#ffffff;
+//  text-decoration:none;
+//  background-color:#272b30;
+//}
+//
+//div.well {
+//  min-height: 20px;
+//  padding: 19px;
+//  margin-bottom: 20px;
+//  background-color: #202328;
+//  border: 1px solid #eee;
+//  border: 1px solid rgba(0, 0, 0, 0.05);
+//  border-radius: 4px;
+//  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+//}
+//
+//
+//.nav-list .nav-header {
+//  display:block;
+//  padding:3px 15px;
+//  font-size:11px;
+//  font-weight:bold;
+//  line-height:18px;
+//  color:#ddd;
+//  text-transform:uppercase;
+//}
+//
+//.well .nav-list>li>a {
+//  color:#bbbfc2;
+//  text-shadow:1px 1px 1px rgba(0, 0, 0, 0.3);
+//}
+//.well .nav-list>li>a:hover {
+//  color:#bbbfc2;
+//  background-color:#3a3f44;
+//  background-color:#3a3f44;
+//  background-repeat:repeat-x;
+//  background-image:-moz-linear-gradient(280deg, #272b30, #3a3f44);
+//  background-image:-ms-linear-gradient(280deg, #272b30, #3a3f44);
+//  background-image:-webkit-linear-gradient(280deg, #272b30, #3a3f44);
+//  background-image:-o-linear-gradient(280deg, #272b30, #3a3f44);
+//  background-image:linear-gradient(280deg, #272b30, #3a3f44);
+//}
+//
+//.well .nav-list>li.active>a,.well .nav-list>li.active>a:hover {
+//  color:#bbbfc2;
+//  background-color:#3a3f44;
+//  background-color:#43494f;
+//  background-repeat:repeat-x;
+//  background-image:-moz-linear-gradient(280deg, #30353b, #43494f);
+//  background-image:-ms-linear-gradient(280deg, #30353b, #43494f);
+//  background-image:-webkit-linear-gradient(280deg, #30353b, #43494f);
+//  background-image:-o-linear-gradient(280deg, #30353b, #43494f);
+//  background-image:linear-gradient(280deg, #30353b, #43494f);
+//}
+//
+//.pagination > ul > li.active > a, .pagination > ul > li.active > a:hover {
+//  color: #BBBFC2;
+//  background-color: #3A3F44;
+//  background-color: #43494F;
+//  background-repeat: repeat-x;
+//  background-image: -moz-linear-gradient(280deg, #30353B, #43494F);
+//  background-image: -ms-linear-gradient(280deg, #30353B, #43494F);
+//  background-image: -webkit-linear-gradient(280deg, #30353B, #43494F);
+//  background-image: -o-linear-gradient(280deg, #30353B, #43494F);
+//  background-image: linear-gradient(280deg, #30353B, #43494F);
+//  border-left: 1px solid transparent;
+//}
+//
+//.pagination li > a, .pagination li.disabled > a {
+//  border-left: 1px solid #52575C;
+//  border-right: 1px solid #2E3134;
+//  border-top: none;
+//  border-bottom: none;
+//}
+//
+//.breadcrumb, .pagination > ul a, .pager a {
+//  border: 1px solid transparent;
+//  -webkit-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+//  -moz-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+//  box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
+//  background-color: #3A3F44;
+//  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#52575C), color-stop(70%, #3A3F44), to(#3A3F44));
+//  background-image: -webkit-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+//  background-image: -moz-linear-gradient(top, #52575C, #3A3F44 70%, #3A3F44);
+//  background-image: -ms-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+//  background-image: -o-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+//  background-image: linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
+//  background-repeat: no-repeat;
+//  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#52575c', endColorstr='#3a3f44', GradientType=0);
+//}
+//
+//.pagination a {
+//  float: left;
+//  padding: 0 14px;
+//  line-height: 34px;
+//  text-decoration: none;
+//  border: 1px solid #DDD;
+//  border-left-width: 0;
+//}
+.carousel-control {
+  position: absolute;
+  top: 40%;
+  left: 15px;
   width: 20px;
   height: 20px;
-  font-size: 30px;
+  margin-top: -10px;
+  font-size: 20px;
   line-height: 15px;
-  border: 2px solid white;
 }
-
-.thumbnail {
-  border-color: #222;
-}
-
-.navbar .nav > li > a {
-  float:none;
-  padding:10px 10px 11px;
-  line-height:19px;
-  color:#757c82;
-  text-decoration:none;
-  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
-}
-.navbar .nav > li > a:hover {
-  background-color:transparent;
-  color:#ffffff;
-  text-decoration:none;
-}
-.navbar .nav .active > a,.navbar .nav .active > a:hover {
-  color:#ffffff;
-  text-decoration:none;
-  background-color:#272b30;
-}
-
-div.well {
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #202328;
-  border: 1px solid #eee;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-}
-
-
-.nav-list .nav-header {
-  display:block;
-  padding:3px 15px;
-  font-size:11px;
-  font-weight:bold;
-  line-height:18px;
-  color:#ddd;
-  text-transform:uppercase;
-}
-
-.well .nav-list>li>a {
-  color:#bbbfc2;
-  text-shadow:1px 1px 1px rgba(0, 0, 0, 0.3);
-}
-.well .nav-list>li>a:hover {
-  color:#bbbfc2;
-  background-color:#3a3f44;
-  background-color:#3a3f44;
-  background-repeat:repeat-x;
-  background-image:-moz-linear-gradient(280deg, #272b30, #3a3f44);
-  background-image:-ms-linear-gradient(280deg, #272b30, #3a3f44);
-  background-image:-webkit-linear-gradient(280deg, #272b30, #3a3f44);
-  background-image:-o-linear-gradient(280deg, #272b30, #3a3f44);
-  background-image:linear-gradient(280deg, #272b30, #3a3f44);
-}
-
-.well .nav-list>li.active>a,.well .nav-list>li.active>a:hover {
-  color:#bbbfc2;
-  background-color:#3a3f44;
-  background-color:#43494f;
-  background-repeat:repeat-x;
-  background-image:-moz-linear-gradient(280deg, #30353b, #43494f);
-  background-image:-ms-linear-gradient(280deg, #30353b, #43494f);
-  background-image:-webkit-linear-gradient(280deg, #30353b, #43494f);
-  background-image:-o-linear-gradient(280deg, #30353b, #43494f);
-  background-image:linear-gradient(280deg, #30353b, #43494f);
-}
-
-.pagination > ul > li.active > a, .pagination > ul > li.active > a:hover {
-  color: #BBBFC2;
-  background-color: #3A3F44;
-  background-color: #43494F;
-  background-repeat: repeat-x;
-  background-image: -moz-linear-gradient(280deg, #30353B, #43494F);
-  background-image: -ms-linear-gradient(280deg, #30353B, #43494F);
-  background-image: -webkit-linear-gradient(280deg, #30353B, #43494F);
-  background-image: -o-linear-gradient(280deg, #30353B, #43494F);
-  background-image: linear-gradient(280deg, #30353B, #43494F);
-  border-left: 1px solid transparent;
-}
-
-.pagination li > a, .pagination li.disabled > a {
-  border-left: 1px solid #52575C;
-  border-right: 1px solid #2E3134;
-  border-top: none;
-  border-bottom: none;
-}
-
-.breadcrumb, .pagination > ul a, .pager a {
-  border: 1px solid transparent;
-  -webkit-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
-  -moz-box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
-  box-shadow: '0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1)';
-  background-color: #3A3F44;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#52575C), color-stop(70%, #3A3F44), to(#3A3F44));
-  background-image: -webkit-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
-  background-image: -moz-linear-gradient(top, #52575C, #3A3F44 70%, #3A3F44);
-  background-image: -ms-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
-  background-image: -o-linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
-  background-image: linear-gradient(#52575C, #3A3F44 70%, #3A3F44);
-  background-repeat: no-repeat;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#52575c', endColorstr='#3a3f44', GradientType=0);
-}
-
-.pagination a {
-  float: left;
-  padding: 0 14px;
-  line-height: 34px;
-  text-decoration: none;
-  border: 1px solid #DDD;
-  border-left-width: 0;
-}
-

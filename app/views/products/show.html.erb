@@ -1,6 +1,6 @@
 <%- model_class = @product.class -%>
 <div class="row">
-  <div class="span4">
+  <div class="span3.5">
     <div class="well">
       <div id="product_carousel" class="carousel slide">
         <div class="carousel-inner">
@@ -21,18 +21,22 @@
     <p><%= @product.description %></p>
     <h4><%= sprintf("Rs. %0.02f", @product.price) %></h4><br/>
     <% if @product.product_items.size > 0 %>
-      <select id="product_size">
-        <option>Choose Size</option>
-        <% (@product.product_items.collect {|item| item.size }).each do |size| %>
-          <option value="<%= size %>"><%= size %></option>
-        <% end %>
-      </select>
+      <span>
+        <select id="product_size">
+          <option>Choose Size</option>
+          <% (@product.product_items.collect {|item| item.size }).each do |size| %>
+            <option value="<%= size %>"><%= size %></option>
+          <% end %>
+        </select>
+      </span>
+      <span id="product_quantity" style="display:none;" product_id="<%= @product.id %>">
+      </span>
     <% else %>
       <h5>Out of Stock</h5>
     <% end %>
     <br/>
-    <% if !session[:user_id].nil? %>
-      <a class="btn btn-primary" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
+    <% if user_signed_in? %>
+      <a class="btn btn-primary disabled" id="add_to_cart" product_id="<%= @product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i> Add to Cart</a>
       <br/><br/>
       <a class="btn btn-primary" href="#"><i class="icon-plus-sign icon-white"></i> Order</a>
     <% end %>

@@ -23,4 +23,11 @@ class ProductsController < ApplicationController
       format.json { render json: @product }
     end
   end
+
+  def quantity
+    @product_item = ProductItem.where("product_id = ? and size = ?", params[:product_id], params[:size]).first
+    respond_to do |format|
+      format.html { render :partial => "products/quantity", :locals => { :product_item => @product_item } }
+    end
+  end
 end

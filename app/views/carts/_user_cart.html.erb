@@ -1,3 +1,22 @@
 <% if !cart.nil? %>
   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cart (<%= cart.line_items.size %>)</a>
+  <% if cart.line_items.size > 0 %>
+    <div id="user_cart" class="modal hide fade" style="display:none;">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">x</button>
+        <h3>Cart Items</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="">
+          <% cart.line_items.each do |item| %>
+            <li>X<%= item.quantity %> - <%= item.product.name %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a href="#" class="btn btn-primary">Checkout</a>
+      </div>
+    </div>
+  <% end %>
 <% end %>

@@ -20,11 +20,11 @@
                   <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
                 </ul>
               </li>
-              <li id="cart"><%= render :partial => "carts/user_cart", :locals => {:cart => session[:cart]} %></li>
+              <li id="cart" class="dropdown"><%= render :partial => "carts/user_cart", :locals => {:cart => session[:cart]} %></li>
             </ul>
           <% else %>
-            <li><%= link_to 'Sign Up', new_registration_path(User), :class => 'pull-right' %></li>
-            <li><%= link_to 'Login', new_session_path(User), :class => 'pull-right' %></li>
+            <li><%= link_to 'Sign Up', signup_path, :class => 'pull-right' %></li>
+            <li><%= link_to 'Login', login_path, :class => 'pull-right' %></li>
           <% end %>
         </ul>
       </div>

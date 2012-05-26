@@ -1,6 +1,5 @@
-<select id="product_quantity">
-  <option>Quantity</option>
-  <% item.quantity.times do |i| %>
-    <option value="<%= i%>"><%= i%></option>
+<select id="quantity">
+  <% product_item.quantity.times do |i| %>
+    <option value="<%= i + 1 %>"><%= i + 1 %></option>
   <% end %>
 </select>

@@ -20,28 +20,28 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   line-height: 18px;
-  color: #757C82;
-  background-color: #272B30;
+//  color: #757C82;
+//  background-color: #272B30;
 }
-
-.btn-primary{
-  background-color:#757a82;
-  background-image:-moz-linear-gradient(top, #757c82, #757882);
-  background-image:-ms-linear-gradient(top, #757c82, #757882);
-  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#757c82), to(#757882));
-  background-image:-webkit-linear-gradient(top, #757c82, #757882);
-  background-image:-o-linear-gradient(top, #757c82, #757882);
-  background-image:linear-gradient(top, #757c82, #757882);
-  background-repeat:repeat-x;
-  border-color:#757882 #757882 #51535a;
-  border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-}
-.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
-  background-color:#757882;
-}
-.btn-primary:active,.btn-primary.active {
-  background-color:#5d5f67 \9;
-}
+//
+//.btn-primary{
+//  background-color:#757a82;
+//  background-image:-moz-linear-gradient(top, #757c82, #757882);
+//  background-image:-ms-linear-gradient(top, #757c82, #757882);
+//  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#757c82), to(#757882));
+//  background-image:-webkit-linear-gradient(top, #757c82, #757882);
+//  background-image:-o-linear-gradient(top, #757c82, #757882);
+//  background-image:linear-gradient(top, #757c82, #757882);
+//  background-repeat:repeat-x;
+//  border-color:#757882 #757882 #51535a;
+//  border-color:rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+//}
+//.btn-primary:hover,.btn-primary:active,.btn-primary.active,.btn-primary.disabled,.btn-primary[disabled] {
+//  background-color:#757882;
+//}
+//.btn-primary:active,.btn-primary.active {
+//  background-color:#5d5f67 \9;
+//}
 
 .icon-white {
   background-image: url("/assets/twitter/bootstrap/glyphicons-halflings-white.png");

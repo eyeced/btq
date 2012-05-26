@@ -1,22 +1,20 @@
-class SessionsController < ApplicationController
+# SessionConstroller class that extends the Devise's session controller
+# It sets the cart in the session for the logged in user
+class SessionsController < Devise::SessionsController
+
   def new
+    super
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      session[:cart] = current_cart
-      redirect_to root_url, notice: 'Logged in'
-    else
-      flash.now.alert = "Wronf credentials given"
-      render 'new'
+    super
+    if user_signed_in?
+      session[:cart_id] = current_cart.id
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    session[:cart] = nil
-    redirect_to root_url, notice: 'Logged out'
+    super
+    session[:cart_id] = nil
   end
 end

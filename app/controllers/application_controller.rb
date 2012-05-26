@@ -13,11 +13,14 @@ class ApplicationController < ActionController::Base
 
     def current_cart
       cart = nil
-      if session[:cart].nil?
-        cart = Cart.create!(:user_id => session[:user_id])
-        session[:cart] = cart
-      else
-        cart = session[:cart]
+      if user_signed_in?
+        if session[:cart_id].nil?
+          cart = Cart.find_by_user_id(current_user.id)
+          cart = Cart.create!(:user_id => current_user.id) if cart.nil?
+          session[:cart_id] = cart.id
+       else
+         cart = Cart.find(session[:cart_id])
+       end
       end
       cart
     end
