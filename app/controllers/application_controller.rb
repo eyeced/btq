@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 #     @current_user ||= current_user if user_signed_in?
 #   end
 #   helper_method :current_user
+    helper_method :current_cart
 
     def authorize
       redirect_to login_url, alert: "Not authorized" if current_user.nil?

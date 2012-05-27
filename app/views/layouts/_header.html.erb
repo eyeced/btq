@@ -20,7 +20,7 @@
                   <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
                 </ul>
               </li>
-              <li id="cart" class="dropdown"><%= render :partial => "carts/user_cart", :locals => {:cart => session[:cart]} %></li>
+              <li id="cart" class="dropdown"><%= render :partial => "carts/user_cart", :locals => {:cart => current_cart} %></li>
             </ul>
           <% else %>
             <li><%= link_to 'Sign Up', signup_path, :class => 'pull-right' %></li>

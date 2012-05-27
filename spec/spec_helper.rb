@@ -41,7 +41,19 @@ RSpec.configure do |config|
 #  config.include Warden::Test::Helpers, :type => :acceptance
 
   config.include(MailerMacros)
-  config.before(:each) { reset_emails }
 
-  config.after(:each) { User.delete_all }
+  config.before(:suite) do
+#    DatabaseCleaner.strategy = :transaction
+#    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    reset_emails
+#    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+  #    DatabaseCleaner.clean
+    User.delete_all
+  end
 end

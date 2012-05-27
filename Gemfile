@@ -47,7 +47,8 @@ group :test do
   gem 'libnotify'
   gem 'database_cleaner'
   gem 'lorem-ipsum'
-  gem 'selenium-webdriver', '2.22.0.rc1'
+  gem 'selenium-webdriver', '~> 2.21.2'
+  gem 'launchy'
 end
 
 # To use Jbuilder templates for JSON
