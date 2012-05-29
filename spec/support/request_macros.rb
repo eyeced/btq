@@ -1,6 +1,6 @@
 module RequestMacros
-  include Warden::Test::Helpers
   def login_user
+    include Warden::Test::Helpers
     before(:each) do
       @user = FactoryGirl.create(:user)
       login_as @user, :scope => :user

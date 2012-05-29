@@ -26,19 +26,12 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
-#  config.include RequestMacros, :type => :request
-
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
-#  config.include Devise::TestHelpers, :type => :controller
-#config.extend ControllerMacros, :type => :controller
-  config.extend RequestMacros, :type => :request
-#  config.include Devise::TestHelpers, :type => :request
-
-#  config.include Warden::Test::Helpers, :type => :acceptance
+  config.extend RequestMacros
 
   config.include(MailerMacros)
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
+require 'capybara_helper'
 
-include Warden::Test::Helpers
 describe "ShowProduct" do
   login_user
 
@@ -25,9 +25,13 @@ describe "ShowProduct" do
 
   it "should increase cart num when product is added", :js => true do
     page.select('small', :from => 'product_size')
-    cart_text_before = find_by_id('cart').find('a').text
+    find_by_id('quantity')
+    page.select('2', :from => 'quantity')
+    cart_items_before = find_by_id('cart').find('a').text.scan(/\d/)[0].to_i
     click_link "add_to_cart"
-    cart_text_after = find_by_id('cart').find('a').text
-    cart_text_before.should_not equal(cart_text_after)
+    wait_until_ajax_done
+    cart_items_after = find_by_id('cart').find('a').text.scan(/\d/)[0].to_i
+    item_added = cart_items_after - cart_items_before
+    item_added.should eql(2)
   end
 end

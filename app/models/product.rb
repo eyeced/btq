@@ -45,6 +45,10 @@ class Product < ActiveRecord::Base
     quantity
   end
 
+  def self.find_by_trend(trend_id)
+    products = Product.where('id in (select product_id from products_trends where trend_id = ?)', trend_id)
+  end
+
   private
     # ensure here that if destroy is called on the product then we should ensure that the product
     # is not been references in any line item

@@ -1,20 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @trend.name %>
-</p>
-
-<p>
-  <b>Start:</b>
-  <%= @trend.start %>
-</p>
-
-<p>
-  <b>End:</b>
-  <%= @trend.end %>
-</p>
-
-
-<%= link_to 'Edit', edit_trend_path(@trend) %> |
-<%= link_to 'Back', trends_path %>
+<div class="row">
+  <div class="span3">
+    <div class="well">
+      <ul class="nav nav-list">
+        <li class="nav-header">Trends</li>
+        <% @trends.each do |trend| %>
+          <li class="<%= "active" if trend.id == @trend.id %>"><%= link_to trend.name, trend_path(trend) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    <h1><%= @trend.name %></h1>
+    <p><%= @trend.description %></p>
+    <%= render :partial => "products/list", :locals => {:products => @products} %>
+  </div>
+</div>
