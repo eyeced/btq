@@ -1,0 +1,12 @@
+<ul class="breadcrumb">
+  <li><a href="/products">Products</a> <span class="divider">/</span></li>
+  <% if resource.class.name == "Product" %>
+    <li><a href="/categories/<%= resource.category.parent.id %>"><%= resource.category.parent.name %></a> <span class="divider">/</span></li>
+    <li><a href="/categories/<%= resource.category.id %>"><%= resource.category.name %></a> <span class="divider">/</span></li>
+  <% elsif resource.class.name == "Category" %>
+    <% if !resource.parent.nil? %>
+      <li><a href="/categories/<%= resource.parent.id %>"><%= resource.parent.name %></a> <span class="divider">/</span></li>
+    <% end %>
+  <% end %>
+  <li class="active"><%= resource.name %></li>
+</ul>

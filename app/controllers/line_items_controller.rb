@@ -1,6 +1,6 @@
 class LineItemsController < InheritedResources::Base
 
-  def new
+  def create
     @cart = current_cart
     line_item = LineItem.where("cart_id = ? and product_id = ?", @cart.id, params[:product_id]).first
     if line_item.nil?

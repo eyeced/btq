@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span3">
+    <div class="well">
+      <ul class="nav nav-list">
+        <li class="nav-header">Categories<li>
+        <% @categories.each do |category| %>
+          <li><%= link_to "#{category.name}", :controller => "products", :query => "#{category.name}" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="span9">
+    <%= render :partial => 'common/breadcrumbs', :locals => { :resource => @category } %>
+    <h1><%= @category.name %></h1>
+    <%= render :partial => "products/list", :locals => { :products => @products } %>
+  </div>
+</div>
+

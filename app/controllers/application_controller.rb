@@ -2,10 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   private
-#def current_user
-#     @current_user ||= current_user if user_signed_in?
-#   end
-#   helper_method :current_user
     helper_method :current_cart
 
     def authorize

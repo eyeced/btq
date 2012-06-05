@@ -2,16 +2,16 @@ Btq::Application.routes.draw do
 
   devise_for :users, :path_names => { "signup" => "sign_up"}, :controllers => { :sessions => "sessions" }
 
-devise_scope :user do
-  get "login", :to => "devise/sessions#new"
-  get "signup", :to => "devise/registrations#new"
-end
+  devise_scope :user do
+    get "login", :to => "devise/sessions#new"
+    get "signup", :to => "devise/registrations#new"
+  end
 
   resources :categories
 
   resources :line_items
 
-  post 'line_items/new', to: 'line_items#new', as: 'new_line_item'
+#post 'line_items/new', to: 'line_items#new', as: 'new_line_item'
 
   resources :carts
 
@@ -34,7 +34,6 @@ end
 
   get 'products/quantity', to: 'products#quantity'
   resources :products
-
 
   resources :password_resets
 

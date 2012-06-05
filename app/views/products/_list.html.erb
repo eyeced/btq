@@ -9,7 +9,6 @@
           <h5><%= link_to product.name, product_path(product) %></h5>
           <p>
             <% if user_signed_in? %>
-              <a class="btn btn-primary btn-small" id="add_to_cart" product_id="<%= product.id %>" href="#"><i class="icon-shopping-cart icon-white"></i></a>
               <a class="btn btn-primary btn-small" href="#"><i class="icon-plus-sign icon-white"></i></a>
             <% end %>
           </p>

@@ -16,6 +16,7 @@
     </div>
   </div>
   <div class="span8">
+    <%= render :partial => 'common/breadcrumbs', :locals => { :resource => @product } %>
     <br/>
     <h2><%= @product.name %></h2>
     <p><%= @product.description %></p>

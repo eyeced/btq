@@ -6,7 +6,7 @@ $ ->
 
   $('#add_to_cart').click ->
     $.ajax({
-      url: '/line_items/new?product_id=' + $('#add_to_cart').attr('product_id') + '&quantity=' + $('#quantity').val(),
+      url: '/line_items?product_id=' + $('#add_to_cart').attr('product_id') + '&quantity=' + $('#quantity').val(),
       type: 'POST',
       success: (data) ->
         $('#cart').html(data)
