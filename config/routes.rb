@@ -1,5 +1,7 @@
 Btq::Application.routes.draw do
 
+  resources :brands
+
   devise_for :users, :path_names => { "signup" => "sign_up"}, :controllers => { :sessions => "sessions" }
 
   devise_scope :user do

@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price, :type, :path, :description, :images_attributes, :trend_ids, :category_id, :product_items_attributes
+  attr_accessible :name, :price, :type, :path, :description, :images_attributes, :trend_ids, :category_id, :brand_id, :product_items_attributes
 # many to many relation with trends
   has_and_belongs_to_many :trends
 # one to many mapping to images
@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
 
   belongs_to :category
+  belongs_to :brand
 # property added to control insert for the related models
   accepts_nested_attributes_for :images, :allow_destroy => true
   accepts_nested_attributes_for :trends
@@ -17,7 +18,7 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :name, :description, :price, :category_id, presence: true
+  validates :name, :description, :price, :category_id, :brand_id, presence: true
 
   include PgSearch
   pg_search_scope :search, against: [:name, :description],

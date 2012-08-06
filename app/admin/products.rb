@@ -32,6 +32,7 @@ ActiveAdmin.register Product do
       f.input :description
       f.input :price
       f.input :trends
+			f.input :brand, :collection => Brand.all
       f.input :category, :collection => Category.sub_categories.collect! {|sub| sub.name = sub.parent.name + " -> " + sub.name; sub}
     end
 
